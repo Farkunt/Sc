@@ -1,0 +1,114 @@
+-- Music System By | Farkunt_
+-- Music System V1
+ 
+local T=game:GetService("TweenService")
+local P=game:GetService("Players").LocalPlayer
+local G=P:WaitForChild("PlayerGui")
+ 
+-- 🎵 LAGU (131 Songs)
+local S={{n="DJ Stay Kane",a="DJ",id=137657207613132},{n="DJ Bintang 5",a="DJ",id=134435445558993},{n="DJ JJ World",a="DJ",id=90145710334449},{n="DJ Tor Monitor",a="DJ",id=70633665224310},{n="DJ Party",a="DJ",id=118390472006859},{n="Jedag Jedug",a="DJ",id=100787734732008},{n="Jamilah",a="DJ",id=116255319981650},{n="Raja Mexico",a="DJ",id=101608805472261},{n="Ee Ee Kenceng",a="DJ",id=101419525809543},{n="Tung Tung",a="DJ",id=70860648654984},{n="Funkot Stecu",a="Funkot",id=105935548669522},{n="Nana Memissu",a="Funkot",id=136842585273816},{n="Bahagiamu",a="DJ",id=110691393637838},{n="Dame Un Grr",a="Dustep",id=101362929989754},{n="Lalala",a="Joget",id=79073283903510},{n="Gerah",a="Pargoy",id=78859797813378},{n="Suka Suka",a="DJ",id=91089804280618},{n="Yami Yami",a="DJ",id=84570363516667},{n="Jangan Calling",a="DJ",id=101244701122281},{n="Baby Don't Go",a="DJ",id=135407156540365},{n="Always Loving",a="Dugem",id=138240226435856},{n="Miracles",a="Dugem",id=70436344944799},{n="We Wanna",a="Dugem",id=130712039189796},{n="Brand New Day",a="Dugem",id=116323172827525},{n="Arabic v1",a="Dugem",id=139871657187137},{n="Rumble",a="Dugem",id=110173941862827},{n="New Heart",a="Dugem",id=96966974660960},{n="Miksue",a="Dugem",id=112753938971674},{n="Tarik Napas",a="Dugem",id=127203386942116},{n="Gaji Tipis",a="Dugem",id=129177050015198},{n="Janji Koplo",a="Koplo",id=107302164689882},{n="Persatuan",a="Koplo",id=87585997282125},{n="Oh Dangdut",a="Dangdut",id=126628849431036},{n="KADA",a="Koplo",id=77588662168259},{n="Tusi Toi",a="Koplo",id=74683957361284},{n="Malam Minggu",a="Dangdut",id=134461125875140},{n="Segara",a="Melayu",id=77922858212710},{n="Aku Suka Kamu",a="Remix",id=84324476801159},{n="Slowly Fades",a="Remix",id=82190007220024},{n="Grow Up",a="Remix",id=113248280551100},{n="Indomie",a="Remix",id=104999170809147},{n="Terakhir Kali",a="Pop Sad",id=90136528978860},{n="Hujan",a="Pop Sad",id=86469198575504},{n="Malam",a="Pop Sad",id=111879260290951},{n="Nada",a="Pop Sad",id=136095989985074},{n="Tulisan Terakhir",a="Remix",id=116861766856253},{n="Mentari Pagi",a="Pop Sad",id=107198551105205},{n="Sebuah Lagu",a="Pop Sad",id=86058413291033},{n="Bisikan Angin",a="Pop Sad",id=75156127215458},{n="Janji Bintang",a="Pop Sad",id=111862546703577},{n="Hujan Cinta",a="Pop Sad",id=81211527812792},{n="Pelukan Hangat",a="Pop Sad",id=115131247077030},{n="Matamu",a="Pop Sad",id=81973481116917},{n="Rumah Hati",a="Pop Sad",id=83250836631471},{n="Cahaya Hati",a="Pop Sad",id=134972205706867},{n="Janji Hati",a="Pop Sad",id=83235710267654},{n="Bangkit",a="Pop Sad",id=135825408597541},{n="Jatuh Cinta Lagi",a="Pop Sad",id=89836791839135},{n="Hati Yang Sama",a="Pop Sad",id=87326774693324},{n="Semangat Pagi",a="Pop Sad",id=122827602727670},{n="Semua Bisa",a="Pop",id=125120061503990},{n="Janji Selalu",a="Pop Sad",id=102243069137065},{n="Kasih Ibu",a="Pop",id=125808212598994},{n="Hanya Dirimu",a="Pop",id=104791543659700},{n="Cinta Ini",a="Pop",id=123540764745648},{n="Coffe",a="Pop",id=135403121041184},{n="Senyap",a="Pop",id=134080487231612},{n="Kekasih Ku",a="Pop Sad",id=92379564604718},{n="Cinta Disurga",a="Pop Sad",id=117404600281388},{n="Naungan Cinta",a="Pop Sad",id=92867250191660},{n="Hanya Diriku",a="Pop",id=111642341850105},{n="Selalu Disisi",a="Pop",id=140521260325790},{n="Terbang Bersamamu",a="Pop",id=118057288321617},{n="Percaya Diri",a="Pop Sad",id=92547183733961},{n="Cinta Sejati",a="Pop Sad",id=98598403587682},{n="Lebih Baik",a="Pop",id=121674280117395},{n="Rahasia Cinta",a="Pop",id=111396932287659},{n="Sepenuh Cinta",a="Pop",id=112132081577489},{n="Cosmic Heart",a="Pop",id=89976281188173},{n="Setiap Titik",a="Pop Sad",id=78172976850121},{n="Jarak Dan Waktu",a="Pop Sad",id=76206714905360},{n="Peluk Aku",a="Pop Sad",id=103448049104154},{n="Counting Stars",a="Pop",id=105289452043939},{n="Kau Adalah Takdir",a="Pop Sad",id=116869902280767},{n="Harmoni",a="Pop Sad",id=113726934561484},{n="Berdiri Teguh",a="Pop Sad",id=78269829173371},{n="Diam Diam Cinta",a="Pop Sad",id=101684839547561},{n="Cantik Pertama",a="Pop",id=114474350535772},{n="Dekatmu",a="Pop Sad",id=103447236688741},{n="Langkah Kecil",a="Pop Sad",id=98248851822793},{n="Cinta Palsu",a="Pop Punk",id=136529849093600},{n="Tentang Kita",a="Pop Sad",id=78991697338288},{n="Lost Key",a="Pop",id=77953938546935},{n="Harus Bangkit",a="Pop Sad",id=117102086902489},{n="Cahaya Gelap",a="Pop",id=95017594064574},{n="Ingin Kembali",a="Pop Sad",id=138694582441714},{n="Luka Lama",a="Pop Sad",id=135528938875440},{n="Ayah Ibu",a="Pop",id=74624575098018},{n="Pahlawan",a="Pop",id=107483499219016},{n="Berharap",a="Pop Sad",id=122432336651563},{n="Tempat Pulang",a="Pop Sad",id=125654265518740},{n="Cinta Kedua",a="Pop",id=106830694449649},{n="Velocity",a="DJ",id=130721206402716},{n="Tantaeeee",a="DJ",id=116647235474599},{n="ABG Tua",a="DJ",id=139825186779265},{n="Ade Su Nika",a="DJ",id=132497938577328},{n="Culik Aku Dong",a="DJ",id=119254319180287},{n="Mancing Mania",a="Dugem",id=129477546529041},{n="Sigma Boy",a="Dugem",id=109420952262721},{n="Rasa Tertinggal",a="DJ",id=91195881581393},{n="Bagaikan Langit",a="DJ",id=115658981016860},{n="Jangan Berubah",a="DJ",id=126398962163813},{n="Orang Salah",a="DJ",id=77545154026611},{n="Tetap Cinta",a="DJ",id=138399521757966},{n="Baon Cikadap",a="Tradisional",id=4004629054},{n="Aku Mohon",a="DJ",id=93671745663611},{n="Demi Aku",a="DJ",id=132867463657917},{n="Gamelan Sunda",a="Tradisional",id=1845919739},{n="Arak Bali",a="Dugem",id=103444531930539},{n="Buruh Tani",a="Dugem",id=104928443006967},{n="Ajeb Ajeb",a="Dugem",id=72730594342556},{n="Nol Kilometer",a="Dugem",id=130241449478422},{n="Wong Galo",a="Dugem",id=94330041376891},{n="Ular Tangga",a="Dugem",id=99670528571562},{n="Lampung Pride",a="Dugem",id=92989585645255},{n="Cak Cak",a="Dugem",id=79661167680535},{n="Terbang Angkasa",a="Dugem",id=124645116118100},{n="Kugadaikan Cinta",a="DJ",id=134090638788064},{n="Picek Matamu",a="Dugem",id=105551572195724},{n="Kuda",a="Dugem",id=120446796681370},{n="Bukit Berbunga",a="DJ",id=70965504859488}}
+ 
+local function U(t,p)local o=Instance.new(t)for k,v in pairs(p)do o[k]=v end return o end
+local function C(p,r)U("UICorner",{CornerRadius=UDim.new(0,r),Parent=p})end
+local function ST(p,c,t)U("UIStroke",{Color=c,Thickness=t or 2,Parent=p})end
+ 
+local g=U("ScreenGui",{Name="Music",ResetOnSpawn=false,Parent=G})
+ 
+-- TOGGLE (Compact)
+local tb=U("TextButton",{Size=UDim2.new(0,38,0,38),Position=UDim2.new(0,12,0,80),BackgroundColor3=Color3.fromRGB(88,101,242),BackgroundTransparency=0.3,Text="🎵",TextSize=18,Font=4,TextColor3=Color3.new(1,1,1),Parent=g})
+C(tb,19)ST(tb,Color3.fromRGB(120,130,255),9)
+ 
+-- MAIN (Compact + Auto Resize)
+local m=U("Frame",{Size=UDim2.new(0,260,0,320),Position=UDim2.new(0,58,0,60),BackgroundColor3=Color3.fromRGB(20,20,30),BackgroundTransparency=0.4,BorderSizePixel=0,Visible=false,Parent=g})
+C(m,14)ST(m,Color3.fromRGB(88,101,242),2)
+ 
+-- Auto Scale
+U("UISizeConstraint",{MaxSize=Vector2.new(300,400),MinSize=Vector2.new(220,280),Parent=m})
+ 
+-- Title (Compact)
+local tt=U("TextLabel",{Size=UDim2.new(1,0,0,28),BackgroundColor3=Color3.fromRGB(30,30,40),BackgroundTransparency=0.3,Text="🎧 By | Farkunt_",TextColor3=Color3.new(1,1,1),TextSize=10,Font=4,Parent=m})
+C(tt,14)
+ 
+-- TAB BTN (Auto Resize)
+local tb1=U("TextButton",{Size=UDim2.new(0.48,0,0,28),Position=UDim2.new(0,6,0,36),BackgroundColor3=Color3.fromRGB(88,101,242),BackgroundTransparency=0.2,Text="▶️ Play",TextSize=10,Font=4,TextColor3=Color3.new(1,1,1),Parent=m})
+C(tb1,7)
+ 
+local tb2=U("TextButton",{Size=UDim2.new(0.48,0,0,28),Position=UDim2.new(0.52,0,0,36),BackgroundColor3=Color3.fromRGB(60,60,80),BackgroundTransparency=0.2,Text="📜 List",TextSize=10,Font=4,TextColor3=Color3.new(1,1,1),Parent=m})
+C(tb2,7)
+ 
+-- PLAYER TAB (Auto Layout)
+local pt=U("Frame",{Size=UDim2.new(1,-12,1,-76),Position=UDim2.new(0,6,0,70),BackgroundTransparency=1,Parent=m})
+ 
+local np=U("Frame",{Size=UDim2.new(1,0,0,48),BackgroundColor3=Color3.fromRGB(35,35,50),BackgroundTransparency=0.3,BorderSizePixel=0,Parent=pt})
+C(np,8)
+ 
+local sn=U("TextLabel",{Size=UDim2.new(1,-12,0,20),Position=UDim2.new(0,6,0,6),BackgroundTransparency=1,Text="No song",TextColor3=Color3.new(1,1,1),TextSize=10,Font=4,TextXAlignment=2,TextTruncate=1,Parent=np})
+local ar=U("TextLabel",{Size=UDim2.new(1,-12,0,16),Position=UDim2.new(0,6,0,26),BackgroundTransparency=1,Text="Select song",TextColor3=Color3.fromRGB(150,150,170),TextSize=9,Font=3,TextXAlignment=2,Parent=np})
+ 
+local cf=U("Frame",{Size=UDim2.new(1,0,0,40),Position=UDim2.new(0,0,0,58),BackgroundTransparency=1,Parent=pt})
+U("UIListLayout",{FillDirection=0,HorizontalAlignment=2,Padding=UDim.new(0,8),Parent=cf})
+ 
+local btns={}
+for _,d in ipairs{{n="Prv",i="⏮️",s=38},{n="Ply",i="▶️",s=48},{n="Nxt",i="⏭️",s=38}}do
+    local b=U("TextButton",{Size=UDim2.new(0,d.s,0,d.s),BackgroundColor3=Color3.fromRGB(60,60,80),BackgroundTransparency=0.2,Text=d.i,TextSize=d.s==48 and 20 or 16,Font=4,TextColor3=Color3.new(1,1,1),Parent=cf})
+    C(b,d.s/2)btns[d.n]=b
+end
+ 
+U("TextLabel",{Size=UDim2.new(1,0,0,18),Position=UDim2.new(0,0,0,108),BackgroundTransparency=1,Text="🎵 Custom ID",TextColor3=Color3.new(1,1,1),TextSize=10,Font=4,TextXAlignment=2,Parent=pt})
+ 
+local ib=U("TextBox",{Size=UDim2.new(1,-56,0,28),Position=UDim2.new(0,0,0,130),BackgroundColor3=Color3.fromRGB(40,40,55),BackgroundTransparency=0.3,PlaceholderText="Sound ID...",Text="",TextColor3=Color3.new(1,1,1),TextSize=10,Font=3,Parent=pt})
+C(ib,7)
+ 
+local pb=U("TextButton",{Size=UDim2.new(0,48,0,28),Position=UDim2.new(1,-48,0,130),BackgroundColor3=Color3.fromRGB(88,101,242),BackgroundTransparency=0.2,Text="Play",TextSize=10,Font=4,TextColor3=Color3.new(1,1,1),Parent=pt})
+C(pb,7)
+ 
+local sd=U("Sound",{Volume=1,Parent=m})
+ 
+-- LIST TAB
+local lt=U("Frame",{Size=UDim2.new(1,-12,1,-76),Position=UDim2.new(0,6,0,70),BackgroundTransparency=1,Visible=false,Parent=m})
+ 
+local sb=U("TextBox",{Size=UDim2.new(1,0,0,28),BackgroundColor3=Color3.fromRGB(40,40,55),BackgroundTransparency=0.3,PlaceholderText="🔍 Search...",Text="",TextColor3=Color3.new(1,1,1),TextSize=10,Font=3,Parent=lt})
+C(sb,7)
+ 
+local sc=U("ScrollingFrame",{Size=UDim2.new(1,0,1,-34),Position=UDim2.new(0,0,0,32),BackgroundColor3=Color3.fromRGB(20,20,30),BackgroundTransparency=0.4,BorderSizePixel=0,ScrollBarThickness=3,ScrollBarImageColor3=Color3.fromRGB(88,101,242),CanvasSize=UDim2.new(0,0,0,0),Parent=lt})
+C(sc,7)
+ 
+local ly=U("UIListLayout",{Padding=UDim.new(0,3),Parent=sc})
+ly:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()sc.CanvasSize=UDim2.new(0,0,0,ly.AbsoluteContentSize.Y+6)end)
+    
+    -- LOGIC
+    local i,p=1,false
+    
+    local function upd(q)
+        for _,c in ipairs(sc:GetChildren())do if c:IsA("TextButton")then c:Destroy()end end
+        q=q:lower()
+        for _,s in ipairs(S)do
+            if q==""or s.n:lower():find(q,1,true)or s.a:lower():find(q,1,true)then
+                local b=U("TextButton",{Size=UDim2.new(1,0,0,36),BackgroundColor3=Color3.fromRGB(35,35,50),BackgroundTransparency=0.2,Text="",Parent=sc})
+                C(b,7)
+                U("TextLabel",{Size=UDim2.new(1,-8,0,16),Position=UDim2.new(0,6,0,3),BackgroundTransparency=1,Text=s.n,TextColor3=Color3.new(1,1,1),TextSize=10,Font=4,TextXAlignment=2,TextTruncate=1,Parent=b})
+                U("TextLabel",{Size=UDim2.new(1,-8,0,14),Position=UDim2.new(0,6,0,19),BackgroundTransparency=1,Text=s.a,TextColor3=Color3.fromRGB(140,140,160),TextSize=8,Font=3,TextXAlignment=2,Parent=b})
+                b.MouseButton1Click:Connect(function()
+                    sd:Stop()sd.SoundId="rbxassetid://"..s.id sd:Play()
+                    sn.Text=s.n ar.Text=s.a p=true btns.Ply.Text="⏸️"
+                end)
+            end
+        end
+    end
+    
+    tb1.MouseButton1Click:Connect(function()pt.Visible=true lt.Visible=false tb1.BackgroundColor3=Color3.fromRGB(88,101,242)tb2.BackgroundColor3=Color3.fromRGB(60,60,80)end)
+        tb2.MouseButton1Click:Connect(function()pt.Visible=false lt.Visible=true tb1.BackgroundColor3=Color3.fromRGB(60,60,80)tb2.BackgroundColor3=Color3.fromRGB(88,101,242)end)
+            
+            btns.Ply.MouseButton1Click:Connect(function()if p then sd:Pause()p=false btns.Ply.Text="▶️"else sd:Resume()p=true btns.Ply.Text="⏸️"end end)
+                btns.Nxt.MouseButton1Click:Connect(function()i=i+1 if i>#S then i=1 end local s=S[i]sd:Stop()sd.SoundId="rbxassetid://"..s.id sd:Play()sn.Text=s.n ar.Text=s.a p=true btns.Ply.Text="⏸️"end)
+                    btns.Prv.MouseButton1Click:Connect(function()i=i-1 if i<1 then i=#S end local s=S[i]sd:Stop()sd.SoundId="rbxassetid://"..s.id sd:Play()sn.Text=s.n ar.Text=s.a p=true btns.Ply.Text="⏸️"end)
+                        
+                        pb.MouseButton1Click:Connect(function()local id=ib.Text if id~=""then sd:Stop()sd.SoundId="rbxassetid://"..id sd:Play()sn.Text="Custom Song"ar.Text="ID: "..id p=true btns.Ply.Text="⏸️"end end)
+                            
+                            sb:GetPropertyChangedSignal("Text"):Connect(function()upd(sb.Text)end)
+                                sd.Ended:Connect(function()i=i+1 if i>#S then i=1 end local s=S[i]sd:Stop()sd.SoundId="rbxassetid://"..s.id sd:Play()sn.Text=s.n ar.Text=s.a end)
+                                    
+                                    tb.MouseButton1Click:Connect(function()m.Visible=not m.Visible end)
+                                        
+                                        upd("")
+                                        print("MUsick By | Renzzzzofc18")
